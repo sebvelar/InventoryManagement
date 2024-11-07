@@ -14,7 +14,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 
-//Configuracion
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
