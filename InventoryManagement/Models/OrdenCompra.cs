@@ -8,15 +8,18 @@ namespace InventoryManagement.Models
 
         public int NumeroCompra { get; set; }
 
+        public string Estado { get; set; }
+
         public int NumeroSeguimiento { get; set; }
 
         [StringLength(255)]
         public string Descripcion { get; set; }
 
-        public decimal MontoTotal { get; set; }
+        public float MontoTotal { get; set; }
 
-        //IDEA
-        //Las ordenes de compra deben poder agregar varios proveedores
+        public ICollection<OrdenCompraProveedor> OrdenesCompraProveedores { get; set; }
+
+        public ICollection<OrdenCompraProducto> OrdenesCompraProductos { get; set; }
 
         //IDEA
         //Productos que lo componen

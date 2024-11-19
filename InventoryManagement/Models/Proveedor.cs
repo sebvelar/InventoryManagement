@@ -16,5 +16,11 @@
 
         public ICollection<Contacto> Contactos { get; set; }
 
+        public ICollection<OrdenCompraProveedor> OrdenesCompraProveedores { get; set; }
+        
+
+
+
+
     }
 }

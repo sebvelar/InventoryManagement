@@ -15,13 +15,15 @@ namespace InventoryManagement.Models
 
         public int Existencias { get; set; }
 
-        public decimal Precio { get; set; }
+        public float Precio { get; set; }
 
         public int PorcentajeImpuesto { get; set; }
 
         public int OrdenCompraId { get; set; }
 
-        public ICollection<OrdenCompra> OrdenesCompra { get; set; }
+        public ICollection<OrdenCompraProducto> OrdenCompraProductos { get; set; }
+
+
 
 
     }
