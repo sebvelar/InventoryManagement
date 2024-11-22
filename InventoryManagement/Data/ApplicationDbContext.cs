@@ -40,6 +40,7 @@ namespace InventoryManagement.Data
                 .HasMany(c => c.Contactos)
                 .WithOne(c => c.Proveedor)
                 .HasForeignKey(c => c.IdProveedor);
+
         }
 
         public DbSet<Contacto> Contactos { get; set; }
@@ -53,9 +54,7 @@ namespace InventoryManagement.Data
         public DbSet<OrdenCompraProducto> OrdenesCompraProductos { get; set; }
 
         public DbSet<OrdenCompraProveedor> OrdenesCompraProveedores { get; set; }
-
-
-
+        public DbSet<Usuario> Usuario { get; set; }
 
     }
 
