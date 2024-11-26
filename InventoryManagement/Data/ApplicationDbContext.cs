@@ -54,7 +54,6 @@ namespace InventoryManagement.Data
         public DbSet<OrdenCompraProducto> OrdenesCompraProductos { get; set; }
 
         public DbSet<OrdenCompraProveedor> OrdenesCompraProveedores { get; set; }
-        public DbSet<Usuario> Usuario { get; set; }
 
     }
 
