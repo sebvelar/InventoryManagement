@@ -67,6 +67,10 @@ namespace InventoryManagement.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SelectedRole")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -286,12 +290,17 @@ namespace InventoryManagement.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("UsuarioId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("AspNetRoles", (string)null);
                 });
@@ -455,6 +464,13 @@ namespace InventoryManagement.Migrations
                     b.Navigation("Proveedor");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.HasOne("InventoryManagement.Areas.Identity.Data.Usuario", null)
+                        .WithMany("AvailableRoles")
+                        .HasForeignKey("UsuarioId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -504,6 +520,11 @@ namespace InventoryManagement.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("InventoryManagement.Areas.Identity.Data.Usuario", b =>
+                {
+                    b.Navigation("AvailableRoles");
                 });
 
             modelBuilder.Entity("InventoryManagement.Models.OrdenCompra", b =>

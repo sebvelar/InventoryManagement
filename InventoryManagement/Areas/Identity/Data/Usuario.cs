@@ -10,7 +10,9 @@ namespace InventoryManagement.Areas.Identity.Data;
 // Add profile data for application users by adding properties to the Usuario class
 public class Usuario : IdentityUser
 {
-    [Key]
-    public string Id { get; set; }
+    [Required]
+    public string SelectedRole { get; set; } // Para seleccionar un rol
+
+    public List<IdentityRole> AvailableRoles { get; set; } = new List<IdentityRole>();
 }
 
