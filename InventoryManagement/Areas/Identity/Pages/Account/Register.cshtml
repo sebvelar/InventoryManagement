@@ -31,6 +31,13 @@
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+            <div>
+                <label asp-for="Input.SelectedRole">Seleccione un Rol</label>
+                <select asp-for="Input.SelectedRole" asp-items="Model.AvailableRoles">
+                    <option value="">-- Seleccione --</option>
+                </select>
+                <span asp-validation-for="Input.SelectedRole"></span>
+            </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
